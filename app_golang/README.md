@@ -37,3 +37,23 @@ go build
 ```
 
 Then you can reach API endpoint at http://localhost:8080/time
+
+## Docker
+
+### Build
+
+```bash
+docker build -t wensiet/devops-go-app:latest .
+```
+
+### Pull
+
+```bash
+docker pull wensiet/devops-go-app:latest
+```
+
+### Run
+
+```bash
+docker run -p 8000:8000 wensiet/devops-go-app:latest
+```

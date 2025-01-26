@@ -46,3 +46,23 @@ python main.py
 ```
 
 Then you can reach docs at http://localhost:8000/docs
+
+## Docker
+
+### Build
+
+```bash
+docker build -t wensiet/devops-py-app:latest .
+```
+
+### Pull
+
+```bash
+docker pull wensiet/devops-py-app:latest
+```
+
+### Run
+
+```bash
+docker run -p 8000:8000 wensiet/devops-py-app:latest
+```
