@@ -16,4 +16,9 @@ some Django batteries bugs.
    current script is launched as main program (not a subprogram, or library)
 5) Auto generation of swagger `/docs`
 
+# Unit testing
 
+I implemented two unit test for my application, one checks that it returns
+correct time (in Moscow timezone), another one checks that web framework starts.
+For testing I used `pytest`, for mocking `pytest-mock`, also I ve added
+100% coverage threshold for tests to pass, forcing developers to test their code. 

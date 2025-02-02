@@ -66,3 +66,9 @@ docker pull wensiet/devops-py-app:latest
 ```bash
 docker run -p 8000:8000 wensiet/devops-py-app:latest
 ```
+
+### Unit tests
+
+```bash
+python -m pytest --verbose --cov --cov-fail-under=100
+```
