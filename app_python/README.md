@@ -1,5 +1,8 @@
 # Devops python time API
 
+![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
+![CI](https://github.com/wensiet/S25-core-course-labs/actions/workflows/app-python.yml/badge.svg)
+
 ## Overview
 
 ### Implementation technologies:

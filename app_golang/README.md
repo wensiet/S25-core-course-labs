@@ -1,5 +1,8 @@
 # Devops golang time API
 
+![Go](https://img.shields.io/badge/go-%2300ADD8.svg?style=for-the-badge&logo=go&logoColor=white)
+![CI](https://github.com/wensiet/S25-core-course-labs/actions/workflows/app-go.yml/badge.svg)
+
 ## Overview
 
 ### Implementation technologies:
