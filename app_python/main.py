@@ -3,13 +3,14 @@ from fastapi import FastAPI
 
 from settings import APP_HOST, APP_PORT
 from routes import router
+from prometheus_fastapi_instrumentator import Instrumentator
 
 
 def main() -> None:
-    app = FastAPI(
-            prefix="/api/v1"
-    )
+    app = FastAPI()
     app.include_router(router)
+
+    Instrumentator().instrument(app).expose(app)
 
     uvicorn.run(app, host=APP_HOST, port=APP_PORT)
 

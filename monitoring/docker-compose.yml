@@ -10,6 +10,15 @@ services:
       - "8000:8000"
     networks:
       - loki
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+    deploy:
+      resources:
+        limits:
+          memory: 128M
 
   goapp:
     image: wensiet/devops-go-app:latest
@@ -17,6 +26,15 @@ services:
       - "8080:8080"
     networks:
       - loki
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+    deploy:
+      resources:
+        limits:
+          memory: 128M
 
   loki:
     image: grafana/loki:latest
@@ -25,6 +43,15 @@ services:
     command: -config.file=/etc/loki/local-config.yaml
     networks:
       - loki
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+    deploy:
+      resources:
+        limits:
+          memory: 512M
 
   promtail:
     image: grafana/promtail:latest
@@ -36,6 +63,15 @@ services:
     command: -config.file=/etc/promtail/config.yml
     networks:
       - loki
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+    deploy:
+      resources:
+        limits:
+          memory: 512M
 
   grafana:
     environment:
@@ -67,3 +103,32 @@ services:
       - "3000:3000"
     networks:
       - loki
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+
+  prometheus:
+    image: prom/prometheus:latest
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    command:
+      - "--config.file=/etc/prometheus/prometheus.yml"
+    networks:
+      - loki
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+    deploy:
+      resources:
+        limits:
+          memory: 512M
