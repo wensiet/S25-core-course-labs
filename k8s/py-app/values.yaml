@@ -49,6 +49,8 @@ resources:
      cpu: 100m
      memory: 128Mi
 
+configPath: "files/config.json"
+
 #livenessProbe:
 #  httpGet:
 #    path: /time
@@ -64,8 +66,16 @@ autoscaling:
   maxReplicas: 100
   targetCPUUtilizationPercentage: 80
 
-volumes: []
-volumeMounts: []
+volumes:
+  - name: volume-py-app-config 
+    configMap:
+      name: config-py-app
+
+volumeMounts:
+  - name: volume-py-app-config 
+    subPath: "config.json"
+    mountPath: "/opt/app/config.json"
+    readOnly: true
 
 nodeSelector: {}
 

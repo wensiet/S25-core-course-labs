@@ -10,6 +10,8 @@ services:
       - "8000:8000"
     networks:
       - loki
+    volumes:
+     - ../app_python/visits:/opt/app/visits
     logging:
       driver: "json-file"
       options:
